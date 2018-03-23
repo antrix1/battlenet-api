@@ -1,5 +1,6 @@
 require 'battlenet/api/version'
 require 'battlenet/api/api_response'
+require 'battlenet/api/exceptions'
 require 'httparty'
 require 'addressable/uri'
 
@@ -60,6 +61,27 @@ module Battlenet
       encoded_path = Addressable::URI.encode(path)
 
       response = HTTParty.send(verb, "#{base_uri}#{encoded_path}" , options)
+
+      handle_response(response)
+    end
+
+    private
+
+    def handle_response(response)
+      headers     = response.headers
+      qps_alloted = headers["x-plan-qps-allotted"].to_i
+      qps_current = headers["x-plan-qps-current"].to_i
+      qph_alloted = headers["x-plan-quota-allotted"].to_i
+      qph_current = headers["x-plan-quota-current"].to_i
+      limit_reset = DateTime.parse(headers["x-plan-quota-reset"])
+
+      if qps_current == qps_alloted
+        raise Battlenet::RateLimited.new('Rate limit hit for the second', qps_alloted, qps_current, qph_alloted, qph_current)
+      elsif qph_alloted == qph_current
+        raise Battlenet::RateLimited.new('Rate limit hit for the hour', qps_alloted, qps_current, qph_alloted, qph_current, limit_reset)
+      else
+        response
+      end
     end
   end
 end
