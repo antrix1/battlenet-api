@@ -1,6 +1,5 @@
 module Battlenet
   class APIResponse
-
     attr_accessor :data
 
     def initialize(options={})
@@ -9,12 +8,10 @@ module Battlenet
     end
 
     def get_data(path, options)
-      byebug
       unless @client.nil?
         response = @client.get(path, options)
         @data = response.parsed_response
       end
     end
-
   end
 end

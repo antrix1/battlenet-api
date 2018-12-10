@@ -43,7 +43,6 @@ module Battlenet
     end
 
     def get(path, params = {})
-      byebug
       make_request :get, path, params
     end
 
@@ -61,9 +60,7 @@ module Battlenet
 
       encoded_path = Addressable::URI.encode(path)
 
-      response = HTTParty.send(verb, "#{base_uri}#{encoded_path}" , options)
-
-      handle_response(response)
+      HTTParty.send(verb, "#{base_uri}#{encoded_path}" , options)
     end
 
     private
