@@ -5,7 +5,7 @@ describe Battlenet::WOW::Pet do
   context "when looking up a species" do
     before do
       Battlenet.configure do |config|
-        config.api_key = ENV['BATTLENET_API_KEY']
+        config.access_token = ENV['BATTLENET_ACCESS_TOKEN']
         config.region  = :us
       end
       @wow_client = Battlenet.WOWClient

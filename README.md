@@ -1,4 +1,5 @@
 # Battlenet API Gem
+
 [![Gem Version](https://badge.fury.io/rb/battlenet-api.svg)](http://badge.fury.io/rb/battlenet-api) [![Dependency Status](https://gemnasium.com/goodcodeguy/battlenet-api.svg)](https://gemnasium.com/goodcodeguy/battlenet-api) [![Code Climate](https://codeclimate.com/github/goodcodeguy/battlenet-api/badges/gpa.svg)](https://codeclimate.com/github/goodcodeguy/battlenet-api)
 
 ## Installation
@@ -9,16 +10,16 @@
 
 ### Configuration
 
-````ruby
+```ruby
 Battlenet.configure do |config|
-  config.api_key = 'apikey'
+  config.access_token = 'access_token'
   config.region  = :us
 end
-````
+```
 
 ### World of Warcraft Client
 
-````ruby
+```ruby
 client = Battlenet.WOWClient
 
 achievement = client.achievement({achievement: 'achievement_id'})
@@ -53,11 +54,11 @@ puts recipe.details
 spell = data.spell({spell: 'spell_id'})
 puts spell.details
 
-````
+```
 
 ### Diablo 3 Client
 
-````ruby
+```ruby
 client = Battlenet.D3Client
 
 #Available Methods
@@ -70,11 +71,11 @@ artisan = data.artisan({artisan: 'artisan_id'})
 profile = client.profile({battletag: 'battletag'})
 puts profile.career
 puts profile.hero(hero_id)
-````
+```
 
 ### Starcraft 2 Client
 
-````ruby
+```ruby
 client = Battlenet.S2Client
 
 #Available Methods
@@ -90,8 +91,7 @@ profile = client.profile({id: 'id', region: 'region', name: 'name'})
 puts profile.details
 puts profile.ladders
 puts profile.match_history
-````
-
+```
 
 ## TODO
 

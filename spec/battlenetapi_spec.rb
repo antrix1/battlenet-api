@@ -4,7 +4,7 @@ describe Battlenet::Client do
   context "when special characters are in realm names" do
     before do
       Battlenet.configure do |config|
-        config.api_key = ENV['BATTLENET_API_KEY']
+        config.access_token = ENV['BATTLENET_ACCESS_TOKEN']
         config.region  = :eu
       end
     end
