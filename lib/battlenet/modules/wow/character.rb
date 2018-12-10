@@ -11,7 +11,6 @@ module Battlenet
       end
 
       def profile(options = {})
-        byebug
         get_data(@endpoint, options)
       end
 

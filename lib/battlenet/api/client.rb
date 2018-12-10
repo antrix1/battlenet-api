@@ -43,6 +43,7 @@ module Battlenet
     end
 
     def get(path, params = {})
+      byebug
       make_request :get, path, params
     end
 
