@@ -9,6 +9,7 @@ module Battlenet
     end
 
     def get_data(path, options)
+      byebug
       unless @client.nil?
         response = @client.get(path, options)
         @data = response.parsed_response
