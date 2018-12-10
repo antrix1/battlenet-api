@@ -23,15 +23,15 @@ module Battlenet
     def domain
       domain = case @region
       when :us
-        'us.api.battle.net'
+        'us.api.blizzard.com'
       when :eu
-        'eu.api.battle.net'
+        'eu.api.blizzard.com'
       when :kr
-        'kr.api.battle.net'
+        'kr.api.blizzard.com'
       when :tw
-        'tw.api.battle.net'
+        'tw.api.blizzard.com'
       when :cn
-        'api.battlenet.com.cn'
+        'gateway.battlenet.com.cn'
       else
         raise "Invalid region: #{region.to_s}"
       end
