@@ -53,9 +53,9 @@ module Battlenet
       options[:headers] = headers unless headers.empty?
       options[:query]   = params unless params.empty?
 
-      if @api_key
+      if @access_token
         options[:query] ||= {}
-        options[:query].merge!({ :apikey => @api_key })
+        options[:query].merge!({ access_token: @access_token })
       end
 
       encoded_path = Addressable::URI.encode(path)

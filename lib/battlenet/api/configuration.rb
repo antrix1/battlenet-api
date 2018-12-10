@@ -2,13 +2,13 @@ module Battlenet
   module Configuration
 
     OPTIONS_KEYS = [
-      :api_key,
+      :access_token,
       :region,
       :locale,
       :endpoint
     ].freeze
 
-    DEFAULT_API_KEY  = nil
+    DEFAULT_ACCESS_TOKEN  = nil
     DEFAULT_ENDPOINT = nil
     DEFAULT_REGION   = :us
     DEFAULT_LOCALE   = :en_US
