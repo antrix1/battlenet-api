@@ -1,6 +1,6 @@
 module Battlenet
   class APIResponse
-    attr_accessor :data
+    attr_accessor :data, :response
 
     def initialize(options={})
       @data           = []
@@ -9,8 +9,8 @@ module Battlenet
 
     def get_data(path, options)
       unless @client.nil?
-        response = @client.get(path, options)
-        @data = response.parsed_response
+        @response = @client.get(path, options)
+        @data = @response.parsed_response
       end
     end
   end
