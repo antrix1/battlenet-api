@@ -7,7 +7,7 @@ module Battlenet
       @client         = options[:client]
     end
 
-    def get_data(path, options)
+    def get_data(path, options = {})
       unless @client.nil?
         @response = @client.get(path, options)
         @data = @response.parsed_response

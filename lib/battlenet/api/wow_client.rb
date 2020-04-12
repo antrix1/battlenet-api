@@ -19,11 +19,9 @@ require 'battlenet/modules/wow/boss'
 require 'battlenet/modules/wow/zone'
 
 module Battlenet
-
   class WOWClient < Client
-
     def initialize(options = {})
-      client_settings = { :endpoint => '/wow' }
+      client_settings = { :endpoint => '/' }
       client_settings = client_settings.merge(options)
 
       super(client_settings)
@@ -99,11 +97,9 @@ module Battlenet
 
     private
 
-      def merge_options_and_return_obj(options, obj)
-        opts = options.merge({:client => self})
-        obj.new(opts)
-      end
-
+    def merge_options_and_return_obj(options, obj)
+      opts = options.merge({:client => self})
+      obj.new(opts)
+    end
   end
-
 end

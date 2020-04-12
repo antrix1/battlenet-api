@@ -55,7 +55,7 @@ module Battlenet
 
       if @access_token
         options[:query] ||= {}
-        options[:query].merge!({ access_token: @access_token })
+        options[:query].merge!({ access_token: @access_token, namespace: params[:namespace] || "profile-#{@region}", locale: 'en_US' })
       end
 
       encoded_path = Addressable::URI.encode(path)
