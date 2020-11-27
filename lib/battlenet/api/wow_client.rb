@@ -17,6 +17,8 @@ require 'battlenet/modules/wow/mount'
 require 'battlenet/modules/wow/pet'
 require 'battlenet/modules/wow/boss'
 require 'battlenet/modules/wow/zone'
+require 'battlenet/modules/wow/conduit'
+require 'battlenet/modules/wow/tech_talent'
 
 module Battlenet
   class WOWClient < Client
@@ -93,6 +95,14 @@ module Battlenet
 
     def zone(options = {})
       merge_options_and_return_obj(options, Battlenet::WOW::Zone)
+    end
+
+    def conduit(options = {})
+      merge_options_and_return_obj(options, Battlenet::WOW::Conduit)
+    end
+
+    def tech_talent(options = {})
+      merge_options_and_return_obj(options, Battlenet::WOW::TechTalent)
     end
 
     private

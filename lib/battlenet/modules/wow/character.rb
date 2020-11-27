@@ -88,6 +88,10 @@ module Battlenet
       def media
         get_data("#{@endpoint}/character-media")
       end
+
+      def soulbinds
+        get_data("#{@endpoint}/soulbinds")
+      end
     end
   end
 end
